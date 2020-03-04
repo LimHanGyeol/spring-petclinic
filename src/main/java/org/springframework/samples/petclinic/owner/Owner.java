@@ -54,6 +54,10 @@ public class Owner extends Person {
 	@NotEmpty
 	private String city;
 
+
+
+    private Integer age;
+
 	@Column(name = "telephone")
 	@NotEmpty
 	@Digits(fraction = 0, integer = 10)
@@ -109,6 +113,14 @@ public class Owner extends Person {
 		}
 		pet.setOwner(this);
 	}
+
+    public Integer getAge() {
+        return age;
+    }
+
+    public void setAge(Integer age) {
+        this.age = age;
+    }
 
 	/**
 	 * Return the Pet with the given name, or null if none found for this Owner.
