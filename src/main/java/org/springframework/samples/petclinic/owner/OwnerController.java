@@ -40,13 +40,18 @@ class OwnerController {
 
 	private static final String VIEWS_OWNER_CREATE_OR_UPDATE_FORM = "owners/createOrUpdateOwnerForm";
 
-	@Autowired
 	private OwnerRepository owners;
 
-	@Autowired
 	private VisitRepository visits;
+	@Autowired
+    private PetRepository petRepository;
 
-	@InitBinder
+    public OwnerController(OwnerRepository owners, VisitRepository visits) {
+        this.owners = owners;
+        this.visits = visits;
+    }
+
+    @InitBinder
 	public void setAllowedFields(WebDataBinder dataBinder) {
 		dataBinder.setDisallowedFields("id");
 	}
